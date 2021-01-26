@@ -253,7 +253,7 @@ BEGIN_MESSAGE_MAP(CWisdomLabelDlg, CDialogEx)
 	ON_BN_CLICKED(IDCLK2, &CWisdomLabelDlg::OnBnClickedClk2)
 	ON_BN_CLICKED(IDBRIGHTNESSADD1, &CWisdomLabelDlg::OnBnClickedIdcreatedate21)
 	ON_BN_CLICKED(IDOPENPIC13, &CWisdomLabelDlg::OnBnClickedOpenpic13)
-	ON_BN_CLICKED(IDC_BUTTON1, &CWisdomLabelDlg::OnBnClickedButton1)
+	ON_BN_CLICKED(IDLABELSTATISTICS, &CWisdomLabelDlg::OnBnClickedLabelStatistics)
 	ON_BN_CLICKED(IDREDBLUEEXCHANGE, &CWisdomLabelDlg::OnBnClickedCsetpoint3)
 	ON_BN_CLICKED(IDC_BUTTON2, &CWisdomLabelDlg::OnBnClickedButton2)
 	ON_BN_CLICKED(IDC_BUTTON3, &CWisdomLabelDlg::OnBnClickedButton3)
@@ -389,7 +389,7 @@ BEGIN_MESSAGE_MAP(CWisdomLabelDlg, CDialogEx)
 	ON_COMMAND(ID_PDDXNAME, &CWisdomLabelDlg::OnPddxname)
 	ON_COMMAND(ID_DELETELABPIXEL, &CWisdomLabelDlg::OnDeletelabpixel)
 	ON_COMMAND(ID_PIDELETEPIXEL, &CWisdomLabelDlg::OnPideletepixel)
-	ON_COMMAND(ID_COPYTOTRAINDIR, &CWisdomLabelDlg::OnMzcopyto)
+	ON_COMMAND(ID_COPYTOTRAINDIR, &CWisdomLabelDlg::OnBnClickedCopytotraindir)
 	ON_COMMAND(ID_widefacetovoc, &CWisdomLabelDlg::Onwidefacetovoc)
 	ON_COMMAND(ID_LABELSCALE, &CWisdomLabelDlg::OnLabelscale)
 	ON_COMMAND(ID_SCALETO, &CWisdomLabelDlg::OnScaleto)
@@ -418,6 +418,7 @@ BEGIN_MESSAGE_MAP(CWisdomLabelDlg, CDialogEx)
 	ON_BN_CLICKED(IDEXPANDTOPI, &CWisdomLabelDlg::OnBnClickedExpandtopi)
 	ON_BN_CLICKED(IDAUTOLABELPI, &CWisdomLabelDlg::OnBnClickedAutolabelpi)
 	
+	//ON_BN_CLICKED(ID_COPYTOTRAINDIR, &CWisdomLabelDlg::OnBnClickedCopytotraindir)
 	END_MESSAGE_MAP()
 
 
@@ -8131,7 +8132,7 @@ struct PicAndDxN{
 		DxN=0;
 	}
 };
-void CWisdomLabelDlg::OnBnClickedButton1()
+void CWisdomLabelDlg::OnBnClickedLabelStatistics()
 {
 	// TODO: 在此添加控件通知处理程序代码
 	/*CMTextDlg Dlg1;
@@ -15652,13 +15653,14 @@ void CWisdomLabelDlg::OnPideletepixel()
 }
 
 
-void CWisdomLabelDlg::OnMzcopyto()
+void CWisdomLabelDlg::OnBnClickedCopytotraindir()
 {
 	// TODO: 在此添加命令处理程序代码
 	CMTextDlg pDlg;
 	static CStringA newBzPath="";
 	static CStringA newJpgPath="";
 	pDlg.Size=5;
+	pDlg.SaveTitle="copyToTrainDir";
 	pDlg.Title="复制参数设置:";
 	pDlg.Titles[0]="请输入图片目录:";
 	pDlg.Titles[1]="请输入标注目录:";
@@ -15673,6 +15675,7 @@ void CWisdomLabelDlg::OnMzcopyto()
 	pDlg.Texts[1]=m_LabelPath;
 	pDlg.Texts[2]=newBzPath;
 	pDlg.Texts[3]=newJpgPath;
+	pDlg.Texts[4]="0";
 
 	
 	pDlg.TextWidth=800;
@@ -15715,7 +15718,7 @@ void CWisdomLabelDlg::OnMzcopyto()
 		CString newFileName=fileName;
 		newFileName.Replace(CString(pDlg.Texts[0]),CString(pDlg.Texts[2]));
 		if(pDlg.Texts[4]="0"){
-			CopyFile(fileName,newFileName,1);
+			CopyFile(fileName,newFileName,0);
 		}else{
 			MoveFile(fileName,newFileName);
 		}
@@ -15725,7 +15728,7 @@ void CWisdomLabelDlg::OnMzcopyto()
 		CString newFileName=fileName;
 		newFileName.Replace(CString(pDlg.Texts[1]),CString(pDlg.Texts[3]));
 		if(pDlg.Texts[4]="0"){
-			CopyFile(fileName,newFileName,1);
+			CopyFile(fileName,newFileName,0);
 		}else{
 			MoveFile(fileName,newFileName);
 		}
@@ -16600,6 +16603,9 @@ void CWisdomLabelDlg::OnBnClickedAutolabelpi()
 	// TODO: 在此添加控件通知处理程序代码
 	StartPi(IDAUTOLABELPI,IDAUTOLABEL);
 }
+
+
+
 
 
 
