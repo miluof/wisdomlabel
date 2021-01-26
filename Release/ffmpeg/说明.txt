@@ -1,0 +1,49 @@
+提取音频
+ffmpeg -i 音频的文件.avi  -acodec copy -vn output_audio.avi
+提取视频
+ffmpeg -i 视频的文件.avi  -vcodec copy -an output_video.avi
+合成
+ffmpeg -i output_video.avi -i output_audio -vcodec copy -acodec copy output.avi
+
+
+ffmpeg -i video2.avi -i audio.mp3 -vcodec copy -acodec copy output.avi
+
+-ss 00:00:10 -t 00:01:22
+ffmpeg -i d:\a.mp4 -ss 00:00:00 -t 00:02:06 -vcodec copy -acodec copy d:\a1.mp4
+ffmpeg -i d:\a.mp4 -ss 00:02:00 -t 00:02:13 -vcodec copy -acodec copy d:\a2.mp4
+
+ffmpeg -i d:\b.mp4 -ss 00:00:00 -t 00:02:05 -vcodec copy -acodec copy d:\b1.mp4
+ffmpeg -i d:\b.mp4 -ss 00:01:58 -t 00:01:44 -vcodec copy -acodec copy d:\b2.mp4
+ffmpeg -i d:\c.mp4 -ss 00:00:00 -t 00:01:30 -vcodec copy -acodec copy d:\c1.mp4
+ffmpeg -i d:\c.mp4 -ss 00:01:25 -t 00:01:23 -vcodec copy -acodec copy d:\c2.mp4
+AccessoryServer
+
+FFmpeg的那些坑-Too many packets buffered for output stream
+加入 -max_muxing_queue_size 1024，不过我加到1024还不行，加到4096才行，后来干脆改到8192
+原因是有些视频数据有问题，导致视频处理过快，容器封装时队列溢出。
+
+ffmpeg  -i d:\tmp2\%d.jpg  -r 2 d:\tmp2\test.avi //-r居然为25抽取2
+ffmpeg  -r 1 -i d:\tmp2\%d.jpg   d:\tmp2\test.gif//气死人，-r在前面与在后面意思居然不一样
+ffmpeg  -i d:\tmp2\%d.jpg  d:\tmp2\test.h264
+
+ffmpeg -r 8 -i d:\test(3).h264 -vcodec copy d:\test.mp4
+
+ffmpeg -r 8 -i d:\test(3).h264 -vcodec copy -ss 00:00:00 -t 33 d:\test1.mp4
+ffmpeg -r 8 -i d:\test(3).h264 -vcodec copy -ss 00:00:34 -t 33 d:\test2.mp4
+ffmpeg -r 8 -i d:\test(3).h264 -vcodec copy -ss 00:01:07 -t 33 d:\test3.mp4
+ffmpeg -r 8 -i d:\test(3).h264 -vcodec copy -ss 00:01:40 -t 33 d:\test4.mp4
+ffmpeg -r 8 -i d:\test(3).h264 -vcodec copy -hls_list_size 100 -hls_time 10 output1.m3u8
+ffmpeg -i d:\test.mp4 -vcodec copy -hls_list_size 100 -hls_time 10 output1.m3u8
+ffmpeg -i input.mp4 -c:v libx264 -c:a aac -strict -2 -f hls -hls_list_size 6 -hls_time 5 output1.m3u8
+
+E:\work\project\1078\code\Havi2Mp4\Havi2Mp4\ffmpegSDK\bin\ffmpeg -i d:\189036_2019-07-04_11-35-21.record.mp4 d:\out_1280x720.yuv
+E:\work\project\1078\code\Havi2Mp4\Havi2Mp4\ffmpegSDK\bin\ffmpeg -i d:\189036_2019-07-04_11-35-21.record.mp4 -s 1920x1080 -pix_fmt yuv420p d:\out_1920.yuv
+E:\work\project\1078\code\Havi2Mp4\Havi2Mp4\ffmpegSDK\bin\ffmpeg -i d:\189036_2019-07-04_11-35-21.record.mp4 -s 1920x1080 -pix_fmt yuv420p d:\out_1920_1080.yuv
+E:\work\project\1078\code\Havi2Mp4\Havi2Mp4\ffmpegSDK\bin\ffmpeg -r 15 -video_size 1920x1080 -i d:\out_1920.yuv d:\out.mp4
+ffmpeg -i d:\B80002_4_20200305175400_536870912.wav -codec:a  pcm_alaw d:\B80002_4_20200305175400_536870912g711.wav
+time 18:10:00
+ffmpeg -i D:\报警触发录音文件(1)\4_20200305180500_536870915.wav -codec:a  pcm_alaw d:\4_20200305180500_536870915.wav
+
+ffmpeg -i output.mp4 -r 30 -f image2 foo-%05d.jpeg
+ffmpeg -i e:\wb\2.mp4 -r 1 -f image2 e:\wb\2-%05d.jpg
+//   -r参数表示按照30帧的速度提取。

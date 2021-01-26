@@ -1,0 +1,44 @@
+F:\斑马线和限速标识\第2周\图片\原图片
+F:\斑马线和限速标识\第2周\图片\限速标识
+Z:\darknet\face\VOCdevkit\VOC2007\Annotations
+Z:\darknet\face\VOCdevkit\VOC2007\JPEGImages
+F:\face_kouzhao\pic\tmp
+F:\face_kouzhao\pic
+F:\face_kouzhao\pic\
+F:\face_kouzhao\pic\tmp\imgs
+F:\ztxl\chachebz1
+F:\face_kouzhao\JPEGImages
+D:\
+F:\face_kouzhao\pic\move
+Z:\darknet\face\VOCdevkit\VOC2007\JPEGImages6
+Z:\darknet\face\VOCdevkit\VOC2007\JPEGImagescut
+Z:\darknet\darknetdsm\VOCdevkit\VOC2007\JPEGImages
+Z:\darknet\darknetdsm\VOCdevkit\VOC2007\Annotations
+E:\work\project\ai\bmx\x64\Release\res
+Z:\coco\darknetv3car\VOCdevkit\VOC2007\Annotations
+Z:\coco\darknetv3car\VOCdevkit\VOC2007\JPEGImages
+Z:\coco\bmx\VOCdevkit\VOC2007\Annotations
+Z:\coco\bmx\VOCdevkit\VOC2007\JPEGImages
+Z:\darknet\darknetdsm\VOCdevkit\VOC2007\JPEGImagesor
+Z:\darknet\darknetdsm\VOCdevkit\VOC2007\JPEGImages4\tmp\tmp
+Z:\darknet\darknetdsm\VOCdevkit\VOC2007\JPEGImages4\tmp
+Z:\darknet\darknetdsm\VOCdevkit\VOC2007\JPEGImages4
+Z:\coco\darknetv3car\VOCdevkit\VOC2007\xml
+Z:\darknet\darknetdsm\VOCdevkit\VOC2007\0000\0000
+Z:\darknet\darknetdsm\VOCdevkit\VOC2007\0000(5)\0000
+Z:\darknet\darknetdsm\VOCdevkit\VOC2007\0000(4)\0000
+Z:\darknet\darknetdsm\VOCdevkit\VOC2007\0000(1)(1)\0000
+Z:\darknet\darknetdsm\VOCdevkit\VOC2007\shou1
+Z:\darknet\darknetdsm\VOCdevkit\VOC2007\shou2
+Z:\darknet\darknetdsm\VOCdevkit\VOC2007\auto
+Z:\darknet\chache\VOCdevkit\VOC2007\Annotations
+Z:\darknet\chache\VOCdevkit\VOC2007\JPEGImages
+Z:\darknet\chache\VOCdevkit\VOC2007\9
+F:\person\img\move
+Y:\darknet\darknetdsm\VOCdevkit\VOC2007\Annotations
+Y:\darknet\darknetdsm\VOCdevkit\VOC2007\JPEGImages
+F:\person\img
+F:\斑马线视频\3_2020-10-08 160000-2020-10-08 163000
+F:\斑马线视频\3_2020-10-08 153000-2020-10-08 160000
+F:\斑马线视频\3_2020-10-08 150000-2020-10-08 153000
+F:\斑马线视频\3_2020-10-08 130000-2020-10-08 133000

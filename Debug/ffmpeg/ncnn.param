@@ -1,0 +1,49 @@
+7767517
+47 49
+Input                  data                 0 1 data 0=256 1=256 2=3
+Convolution            0_25                 1 1 data 0_25 0=6 1=5 2=1 3=1 4=2 5=0 6=450
+BatchNorm              0_25_bn              1 1 0_25 0_25_bn 0=6 1=.00001
+ReLU                   0_25_bn_leaky        1 1 0_25_bn 0_25_bn_leaky 0=0.1
+Pooling                1_33                 1 1 0_25_bn_leaky 1_33 0=0 1=2 2=2 5=1 14=1 15=1
+Convolution            2_37                 1 1 1_33 2_37 0=12 1=3 2=1 3=1 4=1 5=0 6=648
+BatchNorm              2_37_bn              1 1 2_37 2_37_bn 0=12 1=.00001
+ReLU                   2_37_bn_leaky        1 1 2_37_bn 2_37_bn_leaky 0=0.1
+Pooling                3_45                 1 1 2_37_bn_leaky 3_45 0=0 1=2 2=2 5=1 14=1 15=1
+Convolution            4_49                 1 1 3_45 4_49 0=24 1=3 2=1 3=1 4=1 5=0 6=2592
+BatchNorm              4_49_bn              1 1 4_49 4_49_bn 0=24 1=.00001
+ReLU                   4_49_bn_leaky        1 1 4_49_bn 4_49_bn_leaky 0=0.1
+Pooling                5_57                 1 1 4_49_bn_leaky 5_57 0=0 1=2 2=2 5=1 14=1 15=1
+Convolution            6_61                 1 1 5_57 6_61 0=48 1=3 2=1 3=1 4=1 5=0 6=10368
+BatchNorm              6_61_bn              1 1 6_61 6_61_bn 0=48 1=.00001
+ReLU                   6_61_bn_leaky        1 1 6_61_bn 6_61_bn_leaky 0=0.1
+Pooling                7_69                 1 1 6_61_bn_leaky 7_69 0=0 1=2 2=2 5=1 14=1 15=1
+Convolution            8_73                 1 1 7_69 8_73 0=96 1=3 2=1 3=1 4=1 5=0 6=41472
+BatchNorm              8_73_bn              1 1 8_73 8_73_bn 0=96 1=.00001
+ReLU                   8_73_bn_leaky        1 1 8_73_bn 8_73_bn_leaky 0=0.1
+Split                  8_73_bn_leaky_split  1 2 8_73_bn_leaky 8_73_bn_leaky_split_0 8_73_bn_leaky_split_1
+Pooling                9_81                 1 1 8_73_bn_leaky_split_0 9_81 0=0 1=2 2=2 5=1 14=1 15=1
+Convolution            10_85                1 1 9_81 10_85 0=192 1=3 2=1 3=1 4=1 5=0 6=165888
+BatchNorm              10_85_bn             1 1 10_85 10_85_bn 0=192 1=.00001
+ReLU                   10_85_bn_leaky       1 1 10_85_bn 10_85_bn_leaky 0=0.1
+Pooling                11_93                1 1 10_85_bn_leaky 11_93 0=0 1=2 2=1 5=1 14=1 15=1
+Convolution            12_97                1 1 11_93 12_97 0=384 1=3 2=1 3=1 4=1 5=0 6=663552
+BatchNorm              12_97_bn             1 1 12_97 12_97_bn 0=384 1=.00001
+ReLU                   12_97_bn_leaky       1 1 12_97_bn 12_97_bn_leaky 0=0.1
+Convolution            13_107               1 1 12_97_bn_leaky 13_107 0=96 1=1 2=1 3=1 4=0 5=0 6=36864
+BatchNorm              13_107_bn            1 1 13_107 13_107_bn 0=96 1=.00001
+ReLU                   13_107_bn_leaky      1 1 13_107_bn 13_107_bn_leaky 0=0.1
+Split                  13_107_bn_leaky_split 1 2 13_107_bn_leaky 13_107_bn_leaky_split_0 13_107_bn_leaky_split_1
+Convolution            14_115               1 1 13_107_bn_leaky_split_0 14_115 0=192 1=3 2=1 3=1 4=1 5=0 6=165888
+BatchNorm              14_115_bn            1 1 14_115 14_115_bn 0=192 1=.00001
+ReLU                   14_115_bn_leaky      1 1 14_115_bn 14_115_bn_leaky 0=0.1
+Convolution            15_123               1 1 14_115_bn_leaky 15_123 0=18 1=1 2=1 3=1 4=0 5=1 6=3456
+Convolution            18_145               1 1 13_107_bn_leaky_split_1 18_145 0=48 1=1 2=1 3=1 4=0 5=0 6=4608
+BatchNorm              18_145_bn            1 1 18_145 18_145_bn 0=48 1=.00001
+ReLU                   18_145_bn_leaky      1 1 18_145_bn 18_145_bn_leaky 0=0.1
+Interp                 19_153               1 1 18_145_bn_leaky 19_153 0=1 1=2.f 2=2.f
+Concat                 20_156               2 1 19_153 8_73_bn_leaky_split_1 20_156
+Convolution            21_159               1 1 20_156 21_159 0=96 1=3 2=1 3=1 4=1 5=0 6=124416
+BatchNorm              21_159_bn            1 1 21_159 21_159_bn 0=96 1=.00001
+ReLU                   21_159_bn_leaky      1 1 21_159_bn 21_159_bn_leaky 0=0.1
+Convolution            22_167               1 1 21_159_bn_leaky 22_167 0=18 1=1 2=1 3=1 4=0 5=1 6=1728
+Yolov3DetectionOutput  detection_out        2 1 15_123 22_167 output 0=1 1=3 2=0.250000 -23304=12,10.000000,14.000000,23.000000,27.000000,37.000000,58.000000,81.000000,82.000000,135.000000,169.000000,344.000000,319.000000 -23305=6,3.000000,4.000000,5.000000,0.000000,1.000000,2.000000 -23306=2,32.000000,16.000000
