@@ -8134,31 +8134,31 @@ struct PicAndDxN{
 void CWisdomLabelDlg::OnBnClickedButton1()
 {
 	// TODO: 在此添加控件通知处理程序代码
-	CMTextDlg Dlg1;
+	/*CMTextDlg Dlg1;
 	Dlg1.Size=1;
 	Dlg1.Title="请选择标注目录";
 	Dlg1.Titles[0]="请输入标注目录:";
 	Dlg1.bLl[0]=2;
-	Dlg1.TextWidth=800;
-	CFile fii;
-	CStringA HisDir=GetModuleDir()+"\\cfg\\hisdir.txt";
-	if(fii.Open(CString(HisDir),CFile::modeRead)){
-		char Buf[4096];
-		int size=fii.Read(Buf,4095);
-		Buf[size]=0;
-		vector<CStringA> List=SplitStr(CStringA(Buf),"\r\n");
-		CStringA ss;
-		for(int k=0;k<List.size();k++){
-			ss=List.at(k);
-		//while(fi.ReadString(ss)){
-			ss.Replace("\r","");
-			ss.Replace("\n","");
-			Dlg1.Datas[0].AddTail(CString(ss));
-		}
-		fii.Close();
-	}
-	if(Dlg1.DoModal()!=IDOK)
-		return;
+	Dlg1.TextWidth=800;*/
+	//CFile fii;
+	//CStringA HisDir=GetModuleDir()+"\\cfg\\hisdir.txt";
+	//if(fii.Open(CString(HisDir),CFile::modeRead)){
+	//	char Buf[4096];
+	//	int size=fii.Read(Buf,4095);
+	//	Buf[size]=0;
+	//	vector<CStringA> List=SplitStr(CStringA(Buf),"\r\n");
+	//	CStringA ss;
+	//	for(int k=0;k<List.size();k++){
+	//		ss=List.at(k);
+	//	//while(fi.ReadString(ss)){
+	//		ss.Replace("\r","");
+	//		ss.Replace("\n","");
+	//		Dlg1.Datas[0].AddTail(CString(ss));
+	//	}
+	//	fii.Close();
+	//}
+	//if(Dlg1.DoModal()!=IDOK)
+	//	return;
 	
 	
 	
@@ -8167,7 +8167,7 @@ void CWisdomLabelDlg::OnBnClickedButton1()
 	//OpenNewPic(Dlg.GetPathName());
 	char Buf[64000];
 	CFileFind ff;
-	int res=ff.FindFile(CString(Dlg1.Texts[0]+"\\*.*"));
+	int res=ff.FindFile(CString(m_LabelPath+"\\*.*"));
 	while(res){
 		res=ff.FindNextFile();
 		if(ff.IsDots() || ff.IsDirectory())
